@@ -1,4 +1,4 @@
-package com.cydeo.utilities;
+package fyi.utilities;
 
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -292,7 +292,7 @@ public class BrowserUtils {
     public static void assertListsEqual(List<String> expected, List<String> actual, String message) {
         // Convert WebElement list to a list of strings
         List<String> actualStrings = actual.stream()
-               // .map(WebElement::getText)
+                // .map(WebElement::getText)
                 .collect(Collectors.toList());
 
         // Check if the lists are equal
@@ -304,7 +304,12 @@ public class BrowserUtils {
         System.out.println("Assertion passed: " + message);
     }
 
-
+    public static void switchToNextWindow(){
+        Set<String> windows = Driver.getDriver().getWindowHandles();
+        String currentWindow = Driver.getDriver().getWindowHandle();
+        windows.remove(currentWindow);
+        Driver.getDriver().switchTo().window((windows.iterator().next()));
+    }
 
     /**
      * Verifies whether the element matching the provided locator is NOT displayed on page

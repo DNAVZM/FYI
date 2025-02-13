@@ -1,4 +1,4 @@
-package com.cydeo.runners;
+package fyi.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
-        glue = "com/cydeo/step_definitions",
+        glue = "fyi/step_definitions",
         dryRun = false,
-        tags = " @all_accounts",
+        tags = " @FYI",
         publish = true //generating a report with public link
 )
 public class CukesRunner {}
